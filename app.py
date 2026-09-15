@@ -38,13 +38,13 @@ def obtener_datos_crudos(url: str, token: str, org: str, bucket: str, measuremen
     cada clic debe traer los datos más recientes de InfluxDB.
     """
     query = f'''
-    from(bucket: "{bucket}")
+    from(bucket: "T_H")
       |> range(start: -{horas}h)
-      |> filter(fn: (r) => r._measurement == "{measurement}")
+      |> filter(fn: (r) => r._measurement == "Sensor 1")
       |> filter(fn: (r) => r._field == "temperatura" or r._field == "humedad" or r._field == "sensacion_termica")
       |> pivot(rowKey:["_time"], columnKey: ["_field"], valueColumn: "_value")
     '''
-    with InfluxDBClient(url=url, token=token, org=org, verify_ssl=False) as client:
+    with InfluxDBClient(url="https://eu-central-1-1.aws.cloud2.influxdata.com", token="VmIHuN_GB8AhmOchqnjtgrOL-oD2pHU-2ypKcswWbtM6aY1G2ylRYOJQpsqEANVl9iZ5PdAGqTsOJ30NPCtPUQ==", org="cmcorrea4@gmail.com", verify_ssl=False) as client:
         df = client.query_api().query_data_frame(query, org=org)
 
     if df.empty:
