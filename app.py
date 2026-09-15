@@ -93,9 +93,9 @@ def entrenar_modelo(df: pd.DataFrame):
 # Barra lateral
 # ────────────────────────────────────────────────────────────────────────────
 st.sidebar.header("Credenciales InfluxDB")
-influx_url = st.sidebar.text_input("URL", placeholder="https://<region>.aws.cloud2.influxdata.com")
-influx_token = st.sidebar.text_input("Token", type="password", placeholder="Tu token de InfluxDB")
-influx_org = st.sidebar.text_input("Organización", placeholder="tu-org o email de la cuenta")
+influx_url = st.sidebar.text_input("URL", placeholder="https://eu-central-1-1.aws.cloud2.influxdata.com")
+influx_token = st.sidebar.text_input("Token", type="password", placeholder="VmIHuN_GB8AhmOchqnjtgrOL-oD2pHU-2ypKcswWbtM6aY1G2ylRYOJQpsqEANVl9iZ5PdAGqTsOJ30NPCtPUQ==")
+influx_org = st.sidebar.text_input("Organización", placeholder="cmcorrea4@gmail.com")
 influx_bucket = st.sidebar.text_input("Bucket", placeholder="T_H")
 influx_measurement = st.sidebar.text_input("Measurement", placeholder="Sensor 1")
 
